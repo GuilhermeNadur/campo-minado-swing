@@ -1,6 +1,7 @@
 package br.com.cod3r.cm.visao;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -16,7 +17,7 @@ import br.com.cod3r.cm.modelo.CampoObservador;
 public class BotaoCampo extends JButton implements CampoObservador, MouseListener {
 
 	private final Color BG_PADRAO = new Color(184, 184, 184);
-	private final Color BG_MARCAR = new Color(8, 179, 247);
+	private final Color BG_MARCAR = new Color(8, 130, 200);
 	private final Color BG_EXPLODIR = new Color(189, 66, 68);
 	private final Color TEXTO_VERDE = new Color(0, 100, 0);
 	
@@ -57,23 +58,27 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
 	private void aplicarEstiloPadrao() {
 		setBackground(BG_PADRAO);
 		setBorder(BorderFactory.createBevelBorder(0));
+		setFont(new Font("arial", Font.BOLD, 17));
 		setText("");
 	}
 
 	private void aplicarEstiloExplodir() {
 		setBackground(BG_EXPLODIR);
-		setForeground(Color.WHITE);
-		setText("X");
+		setForeground(Color.BLACK);
+		setFont(new Font("arial", Font.BOLD, 40));
+		setText("•");
 	}
 
 	private void aplicarEstiloMarcar() {
 		setBackground(BG_MARCAR);
 		setForeground(Color.WHITE);
+		setFont(new Font("arial", Font.BOLD, 17));
 		setText("M");
 	}
 
 	private void aplicarEstiloAbrir() {
 		setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		setFont(new Font("arial", Font.BOLD, 17));
 		
 		if (campo.isMinado()) {
 			setBackground(BG_EXPLODIR);
